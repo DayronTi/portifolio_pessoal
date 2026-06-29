@@ -1,24 +1,9 @@
-# Ambiente virtual
-venv/
 .env
-
-# Python
+backend_boot/.env
+*.env
+venv/
+backend_boot/venv/
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-
-# Django
 db.sqlite3
-media/
-staticfiles/
-
-# VSCode
-.vscode/
-
-# Logs
-*.log
-
-# Sistema
-.DS_Store
-Thumbs.db
+backend_boot/db.sqlite3
