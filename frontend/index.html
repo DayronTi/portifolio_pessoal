@@ -1,0 +1,428 @@
+    <!-- Bruno Dayron -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="./assets/css/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header >
+        <h1 style="color: white"> Dayron<a style="color: #fe8001; font-family: comfortaa;" href="https://www.linkedin.com/in/bruno-dayron-510028240/" target="_blank">TI</a></h1>
+        <nav>
+            <ul class="navegacaoPrimaria">
+                <li>
+                    <a href="#inicio">início</a>
+                </li>
+                <li>
+                    <a href="#resumo">resumo</a>
+                </li>
+                <li>
+                    <a href="#habilidades">habilidades</a>
+                </li>
+                <li>
+                    <a href="#projetos">Projetos</a>
+                </li>
+                <li>
+                    <a href="#contato">contato</a>
+                </li>
+            </ul>
+
+            <div class="mobile_menu_icon">
+                <button onclick="menuShow()" class="icon"> <i class="fa-solid fa-bars"></i> </button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile_menu">
+        <ul class="navegacaoPrimaria2">
+            <li class="nav-iten">
+                <a href="#inicio"><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li class="nav-iten">
+                <a href="#resumo"><i class="fa-solid fa-book"></i></a>
+            </li>
+            <li class="nav-iten">
+                <a href="#habilidades"><i class="fa-solid fa-code"></i></a>
+            </li>
+            <li class="nav-iten">
+                <a href="#projetos"><i class="fa-solid fa-code"></i></a>
+            </li>
+            <li class="nav-iten">
+                <a href="#contato"><i class="fa-solid fa-comments"></i></a>
+            </li>
+        </ul>
+    </div>
+    <main>
+        <section class="sessao1" id="inicio">
+            <div class="home">
+                <h2 class="meuNome">Dayron Tinoco</h2>
+
+                <h2 class="digitando">
+                    <span id="texto-digitando"></span>
+                </h2>
+
+                <p>
+                    <i class="fa-solid fa-building-columns"></i>
+                    Bacharel em S.I | Técnico em Informática
+                </p>
+
+                <button>
+                    <a href="./assets/Documentos/CurriculoRPA.pdf"
+                    target="_blank"
+                    download
+                    style="color: rgb(255, 255, 255); font-family: comfortaa; font-size: larger; font-weight: 900;">
+                        Currículo
+                    </a>
+                </button>
+            </div>
+            <img id="imageminicio" src="./assets/imagens/MinhaLogo.png" alt="Minha logo, um hexágono laranja com uma abelha feita por formas geométricas com as asas cortadas por linhas fazendo uma textura de diamante">
+        </section>
+        <Article class="sobre" id="resumo">
+            <section class="sobre_titulo">
+                <h2>Quem é Dayron?</h2>
+                <p>Um entusiasta em inovações e apaixonado por tecnologia...</p>
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </section>
+            <img src="./assets/imagens/MeuRosto.png" alt="Uma foto de apresentação minha com um hexágono laranja de fundo">
+            <section class="sobre_conteudo">
+                <div class="sobre_texto">
+                    <h2>Prazer sou <span style="color: white;"> Bruno Dayron! </span></h2>
+                        <p>
+                            Sou Desenvolvedor RPA Júnior, estudante de Sistemas de Informação e Técnico em Informática, com experiência em suporte técnico, automação de processos, análise de dados e desenvolvimento de soluções digitais.
+                            <br><br>
+                            Minha trajetória começou na área de suporte, onde desenvolvi uma base sólida em diagnóstico de problemas, atendimento ao usuário, redes, infraestrutura e resolução de incidentes. Essa experiência me ajudou a criar uma visão prática sobre processos, falhas operacionais e oportunidades de melhoria.
+                            <br><br>
+                            Atualmente, atuo no desenvolvimento de automações utilizando Python, integração com APIs, tratamento de dados, criação de dashboards, rotinas automatizadas e soluções voltadas para redução de esforço manual e ganho de eficiência operacional.
+                            <br><br>
+                            Tenho buscado evoluir constantemente em análise de processos, RPA, desenvolvimento backend, banco de dados e Inteligência Artificial aplicada à automação. Meu objetivo é transformar problemas operacionais em soluções simples, inteligentes e escaláveis.
+                        </p>
+                    <button class="lerMais">Ler mais</button>
+                </div>
+            </section>
+        </Article>
+        <section class="services" id="habilidades">
+            <div class="sobre_titulo">
+                <h2>Minhas Habilidades</h2>
+                <p>Mantendo minha mente focada e sempre ativa pude aprender algumas tecnologias e funções.</p>
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="meuServicos" style="display: flex; justify-content: left; align-items: flex-start; flex-wrap: wrap; max-width: 1200px; margin: auto; gap: 5%;">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-spider"></i>
+                        <h3>Web Scraping</h3>
+                        <p>Desenvolvimento de robôs para extração, tratamento e consolidação de dados de sites, sistemas e portais corporativos.</p>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-eye"></i>
+                        <h3>Visão Computacional</h3>
+                        <p>Soluções utilizando OCR, processamento de imagens e reconhecimento visual para automatizar tarefas e validar informações.</p>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-code-branch"></i>
+                        <h3>Integração de Sistemas e APIs</h3>
+                        <p>Desenvolvimento de integrações entre sistemas através de APIs REST, automação de fluxos e sincronização de dados.</p>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-docker"></i>
+                        <h3>Docker</h3>
+                        <p>Containerização de aplicações, padronização de ambientes e implantação de soluções confiáveis.</p>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-database"></i>
+                        <h3>SQL|SQLite</h3>
+                        <p>Modelagem, consultas e tratamento de dados utilizando SQL, SQLite e bancos relacionais para apoio às automações.</p>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-github"></i>
+                        <h3>Git|GitHub</h3>
+                        <p>Versionamento de código, controle de mudanças e colaboração em projetos utilizando Git e GitHub.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="services" id="projetos">
+            <div class="sobre_titulo">
+                <h2>Principais Projetos</h2>
+                <p>Eu automatizo processos, desenvolvo em Python, integro sistemas, trabalho com dados e utilizo IA.</p>
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="projetos-carousel">
+                <button class="carousel-btn prev" onclick="mudarProjeto(-1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="projetos-wrapper">
+
+                    <div class="projeto-card ativo">
+                        <img
+                            src="assets/imagens/projetos/cards-aniversariantes.png"
+                            alt="Automação de Aniversariantes"
+                            class="projeto-img"
+                            onclick="abrirImagem(this.src)"
+                        >
+                        <div class="projeto-info">
+                            <h3>Automação de Aniversariantes</h3>
+                            <p>
+                                Foco: Setor de qualidade - Lembretes de aniversario </br>
+                                Robô desenvolvido em Python para geração automática de cards, PDFs e envio de e-mails corporativos,
+                                com controle de pendências, logs e organização por contratos. </br>
+                                Essa automação roda no servidor da empresa e executa em 3 fluxos separados: </br>
+                                Criação de cards Diários e Mensal, </br>
+                                Criação de relatório mensais de colaboradores com fotos pendentes.  
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="projeto-card">
+                        <img
+                            src="assets\imagens\projetos\validacao-de-documentos.png"
+                            alt="API de Validação de Documentos"
+                            class="projeto-img"
+                            onclick="abrirImagem(this.src)"
+                        >
+                        <div class="projeto-info">
+                            <h3>API de Validação de Documentos com IA</h3>
+                            <p>
+                                API desenvolvida com FastAPI e Inteligência Artificial para análise de documentos, extração de dados,
+                                validação de informações e identificação de inconsistências. </br>
+                                Essa API utiliza visão computacional para validação de documentos e verificaçãi de informações pessoais. </br>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="projeto-card">
+                        <img
+                            src="assets\imagens\projetos\etl-synregia-demandas.png"
+                            alt="Integração de Sistemas"
+                            class="projeto-img"
+                            onclick="abrirImagem(this.src)"
+                        >
+                        <div class="projeto-info">
+                            <h3>Integração Synergia → Demandas</h3>
+                            <p>
+                                Solução de integração via API REST para automatizar importações, validar informações e reduzir etapas
+                                manuais em processos operacionais. </br>
+                                Realiza esxtração de dados usando Pyautogui na interface do Synergia, </br>
+                                Trata os dados extraidos, </br>
+                                Importa os dados limpos em outro sistema, via API.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-btn next" onclick="mudarProjeto(1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+        <div class="my_resume">
+            <div class="sobre_titulo">
+                <h2>Meu histórico</h2>
+                <p>Na área de tecnologia não pode ficar parado, por conta disso estou sempre buscando aprender coisas novas.</p>
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="resume_generica">
+                <h2 class="experience"><i class="fa-solid fa-wrench" style="color: #fe8001;"></i>EXPERIÊNCIA</h2>
+                <div class="experience_content">
+                    <div class="ativo">
+                        <span>2023 - 2024</span>
+                        <h3>Técnico de informática - Estágio</h3>
+                        <p>
+                            Atuei como técnico em informática na Secretaria da Cultura do Estado do Maranhão (SECMA), minhas principais funções foram:
+                            Manutenção de computadores, suporte ao usuário em relação a hadwares, softwares e impressoras!
+                        </p>
+                    </div>
+                    <div>
+                        <span>2024 - 2025</span>
+                        <h3>Suporte N1 - Vegas Net</h3>
+                        <p>
+                            Atuei como suporte N1 em um provedor de internet local, desenvovlvia atendimento e suporte ao cliente, resolução de problemas, analise e monitoramento de Links. <br>
+                            Configuração de equipamentos, liderança da equipe de campo.
+                        </p>
+                    </div>
+                    <div>
+                        <span>2025 - 2026</span>
+                        <h3>Técnico de TI - Logos Serviços</h3>
+                        <p>
+                            Atuei como técnico em informática na Logos, desempenhava papel de analista de TI, responsável por onboranding de colaboradores nos sistemas internos, <br>
+                            Manutenção de computadores e equipamentos de TI, <br>
+                            Resolução de problemas e diálogo com clientes.
+                        </p>
+                    </div>
+                    <div>
+                        <span>2026 - Atualmente</span>
+                        <h3>Dev. RPA Júnior - Logos Serviços</h3>
+                        <p>
+                            Desenvolvimento de robôs e sistemas para ganho operacinal, ROI e iniciação dgital, <br>
+                            Desenvolvi conhecimento em analise de processos em diferentes setores e times. <br> 
+                        </p>
+                    </div>
+                    <ul>
+                        <li class="ativo"><i class="fa-solid fa-circle"></i></li>
+                        <li><i class="fa-solid fa-circle"></i></li>
+                        <li><i class="fa-solid fa-circle"></i></li>
+                        <li><i class="fa-solid fa-circle"></i></li>
+                    </ul>
+                </div>
+
+                <h2 class="education"><i class="fa-solid fa-graduation-cap" style="color: #fe8001;"></i></i>EDUCAÇÃO</h2>
+                <div class="education_content">
+                    <div class="ativo">
+                        <span>2022 - 2023</span>
+                        <h3>Informática Avançada - Técnico</h3>
+                        <p>Meu curso técnico, por mais que meu sonho seja trabalhar como dev, ja tive boas experiências com manutenção de computadores, redes e softawares! Neste curso eu tive os primeiros passos com o Illustrator, Photoshop, Banco de dados, Eletrônica Básica... </p>
+                    </div>
+                    <div>
+                        <span>2023 - 2026</span>
+                        <h3>Sistemas de Informação - Universidade Cest</h3>
+                        <p>Minha faculdade, me fez evoluir muito como aluno de tecnologia, deu todo suporte e auxílio. Entrei de cabeça neste curso e hoje em dia eu não saio de maneira alguma, só quando eu terminar, é claro.</p>
+                    </div>
+                    <ul>
+                        <li class="ativo"><i class="fa-solid fa-circle"></i></li>
+                        <li><i class="fa-solid fa-circle"></i></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="cursos">
+                <div class="my_skill">
+                    <h2><i class="fa-sharp fa-solid fa-star"></i>Constante evolução em</h2>
+                    <div class="skill_content">
+                        <h3>RPA + AI</h3>
+                        <ul>
+                            <li><i class="fa-sharp fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="skill_content">
+                        <h3>MCP e LLMs</h3>
+                        <ul>
+                            <li><i class="fa-sharp fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="skill_content">
+                        <h3>Data Analytics</h3>
+                        <ul>
+                            <li><i class="fa-sharp fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="skill_content">
+                        <h3>Business Analytics</h3>
+                        <ul>
+                            <li><i class="fa-sharp fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="skill_content">
+                        <h3>Django</h3>
+                        <ul>
+                            <li><i class="fa-sharp fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                    <div class="skill_content">
+                        <h3>Data Bases</h3>
+                        <ul>
+                            <li><i class="fa-sharp fa-solid fa-star"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="funfacts">
+                    <h2> <i class="fa-solid fa-heart"></i>BÔNUS</h2>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-mug-hot"></i>
+                            <span>3</span>
+                            <p>Xícaras de café por dia</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-medal"></i>
+                            <span>1</span>
+                            <p>Premiação</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-user"></i>
+                            <span>15+</span>
+                            <p>Projetos</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-users"></i>
+                            <span>139</span>
+                            <p>Conexões no Linkedin</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main> 
+
+    <footer id="contato" style="background-color: #111; color: #fff; padding: 40px 0px; margin-top: 60px;">
+        <div style="display: flex; justify-content: left; align-items: flex-start; flex-wrap: wrap; max-width: 120px; margin: auto; gap: 5%;">
+                <!-- Redes Sociais -->
+            <div style="flex: 1 1 10%; text-align: center;">
+            <h3>Minhas Redes</h3>
+            <div style="display: flex; justify-content: space-around; align-items: center; font-size: 2rem; margin-top: 20px;">
+                <a href="https://www.instagram.com/dayrontinoco" target="_blank" style="color: #fff;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/bruno-dayron-510028240/" target="_blank" style="color: #fff;"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/DayronTi/" target="_blank" style="color: #fff;"><i class="fa-brands fa-github"></i></a>
+            </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- INICIO DO CHATBOT -->
+    <button class="chat-toggle" onclick="abrirFecharChat()">
+        <img src="/frontend/assets/imagens/chatbot/bruninho.png" alt="Uma imagem caricaturizada minha para representar o meu assistente pessoal 'Bruninho'" >
+    </button>
+
+    <div class="chat-widget" id="chat-widget">
+        <div class="chat-header">
+            <span>Bruninho</span>
+            <button onclick="abrirFecharChat()">×</button>
+        </div>
+
+        <div id="chat-mensagens" class="chat-mensagens">
+            <div class="bot">
+                Olá! Sou o Bruninho. Pergunte algo sobre o Bruno 😊
+            </div>
+        </div>
+
+        <div class="chat-input">
+            <input id="pergunta" type="text" placeholder="Digite sua pergunta...">
+            <button onclick="enviarPergunta()">Enviar</button>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="modal-imagem" class="modal-imagem">
+        <span class="fechar-modal">&times;</span>
+
+        <img id="imagem-modal" class="conteudo-modal">
+
+        <div id="legenda-modal"></div>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
