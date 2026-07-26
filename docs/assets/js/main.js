@@ -42,30 +42,136 @@ function digitar() {
 digitar();
 
 
-// BLOCO REFERENTE A ANIMAÇÃO DE CARROSSEL EM "MEUS PROJETOS"
-let projetoAtual = 0;
+// BLOCO REFERENTE AO CARROSSEL DE "MEUS PROJETOS" (ARRASTAR COM MOUSE/TOQUE)
+const projetosWrapper = document.getElementById("projetos-wrapper");
+const projetoCards = Array.from(projetosWrapper.querySelectorAll(".projeto-card"));
 
-const projetos = document.querySelectorAll(".projeto-card");
+let arrastando = false;
+let arrastouDeVerdade = false;
+let posInicialX = 0;
+let scrollInicial = 0;
 
-function mostrarProjeto(index) {
-    projetos.forEach((projeto) => {
-        projeto.classList.remove("ativo");
-    });
+projetosWrapper.addEventListener("pointerdown", (evento) => {
+    if (evento.pointerType !== "mouse") return; // toque já rola nativamente
 
-    if (index >= projetos.length) {
-        projetoAtual = 0;
-    } else if (index < 0) {
-        projetoAtual = projetos.length - 1;
-    } else {
-        projetoAtual = index;
+    arrastando = true;
+    arrastouDeVerdade = false;
+    posInicialX = evento.clientX;
+    scrollInicial = projetosWrapper.scrollLeft;
+    projetosWrapper.classList.add("arrastando");
+});
+
+projetosWrapper.addEventListener("pointermove", (evento) => {
+    if (!arrastando) return;
+
+    const distancia = evento.clientX - posInicialX;
+
+    if (Math.abs(distancia) > 5) {
+        arrastouDeVerdade = true;
     }
 
-    projetos[projetoAtual].classList.add("ativo");
+    projetosWrapper.scrollLeft = scrollInicial - distancia;
+});
+
+function pararArraste() {
+    arrastando = false;
+    projetosWrapper.classList.remove("arrastando");
 }
 
-function mudarProjeto(direcao) {
-    mostrarProjeto(projetoAtual + direcao);
+projetosWrapper.addEventListener("pointerup", pararArraste);
+projetosWrapper.addEventListener("pointerleave", pararArraste);
+
+// Evita abrir o modal da imagem quando o usuário estava arrastando o carrossel
+projetosWrapper.addEventListener("click", (evento) => {
+    if (arrastouDeVerdade) {
+        evento.preventDefault();
+        evento.stopPropagation();
+    }
+}, true);
+
+// Anima o scrollLeft manualmente via requestAnimationFrame, sem depender do
+// "scroll-behavior: smooth" nativo (que alguns navegadores/contextos ignoram).
+function animarScrollHorizontal(elemento, destino, duracao) {
+    const origem = elemento.scrollLeft;
+    const distancia = destino - origem;
+    const inicio = performance.now();
+
+    function passo(agora) {
+        const progresso = Math.min((agora - inicio) / duracao, 1);
+        const suavizado = 1 - Math.pow(1 - progresso, 3);
+
+        elemento.scrollLeft = origem + distancia * suavizado;
+
+        if (progresso < 1) {
+            requestAnimationFrame(passo);
+        }
+    }
+
+    requestAnimationFrame(passo);
 }
+
+// Descobre qual card está mais próximo da posição atual de rolagem
+function indiceProjetoAtual() {
+    let indiceMaisProximo = 0;
+    let menorDistancia = Infinity;
+
+    projetoCards.forEach((card, indice) => {
+        const distancia = Math.abs(card.offsetLeft - projetosWrapper.scrollLeft);
+
+        if (distancia < menorDistancia) {
+            menorDistancia = distancia;
+            indiceMaisProximo = indice;
+        }
+    });
+
+    return indiceMaisProximo;
+}
+
+// Setas do desktop: movem para o card anterior/seguinte
+// (usa a posição real de cada card em vez de clientWidth, já que o gap
+// entre os cards fazia a rolagem desalinhar a cada clique)
+function moverProjeto(direcao) {
+    const indiceAtual = indiceProjetoAtual();
+    const novoIndice = Math.min(
+        Math.max(indiceAtual + direcao, 0),
+        projetoCards.length - 1
+    );
+    const destino = projetoCards[novoIndice].offsetLeft;
+
+    projetosWrapper.style.scrollSnapType = "none";
+    animarScrollHorizontal(projetosWrapper, destino, 400);
+
+    setTimeout(() => {
+        projetosWrapper.style.scrollSnapType = "";
+    }, 450);
+}
+
+// Pequeno movimento automático para indicar que os cards podem ser arrastados
+let dicaDeArrasteExibida = false;
+
+const observadorProjetos = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+        if (entrada.isIntersecting && !dicaDeArrasteExibida) {
+            dicaDeArrasteExibida = true;
+
+            // O scroll-snap "puxa" a posição de volta durante movimentos pequenos,
+            // então ele é desligado só durante essa animação de dica.
+            projetosWrapper.style.scrollSnapType = "none";
+
+            animarScrollHorizontal(projetosWrapper, 60, 350);
+
+            setTimeout(() => {
+                animarScrollHorizontal(projetosWrapper, 0, 350);
+            }, 450);
+
+            setTimeout(() => {
+                projetosWrapper.style.scrollSnapType = "";
+            }, 900);
+        }
+    });
+}, { threshold: 0.5 });
+
+observadorProjetos.observe(projetosWrapper);
 
 // ANIMAÇÃO DE POPUP
 const modal = document.getElementById("modal-imagem");
@@ -96,19 +202,49 @@ modal.onclick = function (e) {
 
 
 
-function menuShow() {
-    const menuMobile = document.querySelector('.mobile_menu');
-    const icon = document.querySelector('.fa-solid','.fa-bars');
+const menuMobile = document.getElementById('mobile-menu');
+const menuMobileToggle = document.getElementById('mobile-menu-toggle');
+const menuMobileIcon = menuMobileToggle.querySelector('i');
 
+function menuShow() {
     if (menuMobile.classList.contains('open')) {
-        menuMobile.classList.remove('open');
-        icon.classList.remove('fa-solid','fa-xmark')
-        icon.classList.add('fa-solid','fa-bars');
+        fecharMenuMobile();
     } else {
         menuMobile.classList.add('open');
-        icon.classList.add('fa-solid','fa-xmark');
+        menuMobileIcon.classList.remove('fa-bars');
+        menuMobileIcon.classList.add('fa-xmark');
+        menuMobileToggle.setAttribute('aria-expanded', 'true');
     }
 }
+
+function fecharMenuMobile() {
+    menuMobile.classList.remove('open');
+    menuMobileIcon.classList.remove('fa-xmark');
+    menuMobileIcon.classList.add('fa-bars');
+    menuMobileToggle.setAttribute('aria-expanded', 'false');
+}
+
+// Fecha o menu mobile ao clicar em um item de navegação
+document.querySelectorAll('.mobile_menu .nav-iten a').forEach((link) => {
+    link.addEventListener('click', fecharMenuMobile);
+});
+
+// Fecha o menu mobile ao clicar fora dele
+document.addEventListener('click', (evento) => {
+    const menuAberto = menuMobile.classList.contains('open');
+    const cliqueForaDoMenu = !menuMobile.contains(evento.target) && !menuMobileToggle.contains(evento.target);
+
+    if (menuAberto && cliqueForaDoMenu) {
+        fecharMenuMobile();
+    }
+});
+
+// Fecha o menu mobile ao pressionar Esc
+document.addEventListener('keydown', (evento) => {
+    if (evento.key === 'Escape') {
+        fecharMenuMobile();
+    }
+});
 
 
 function sobreMim() {

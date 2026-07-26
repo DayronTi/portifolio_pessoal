@@ -31,26 +31,26 @@
             </ul>
 
             <div class="mobile_menu_icon">
-                <button onclick="menuShow()" class="icon"> <i class="fa-solid fa-bars"></i> </button>
+                <button onclick="menuShow()" class="icon" id="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu"> <i class="fa-solid fa-bars"></i> </button>
             </div>
         </nav>
     </header>
-    <div class="mobile_menu">
+    <div class="mobile_menu" id="mobile-menu">
         <ul class="navegacaoPrimaria2">
             <li class="nav-iten">
-                <a href="#inicio"><i class="fa-solid fa-house"></i></a>
+                <a href="#inicio"><i class="fa-solid fa-house"></i><span>Início</span></a>
             </li>
             <li class="nav-iten">
-                <a href="#resumo"><i class="fa-solid fa-book"></i></a>
+                <a href="#resumo"><i class="fa-solid fa-book"></i><span>Resumo</span></a>
             </li>
             <li class="nav-iten">
-                <a href="#habilidades"><i class="fa-solid fa-code"></i></a>
+                <a href="#habilidades"><i class="fa-solid fa-code"></i><span>Habilidades</span></a>
             </li>
             <li class="nav-iten">
-                <a href="#projetos"><i class="fa-solid fa-code"></i></a>
+                <a href="#projetos"><i class="fa-solid fa-diagram-project"></i><span>Projetos</span></a>
             </li>
             <li class="nav-iten">
-                <a href="#contato"><i class="fa-solid fa-comments"></i></a>
+                <a href="#contato"><i class="fa-solid fa-comments"></i><span>Contato</span></a>
             </li>
         </ul>
     </div>
@@ -163,13 +163,13 @@
             </div>
 
             <div class="projetos-carousel">
-                <button class="carousel-btn prev" onclick="mudarProjeto(-1)">
+                <button class="carousel-btn prev" onclick="moverProjeto(-1)" aria-label="Projeto anterior">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
-                <div class="projetos-wrapper">
+                <div class="projetos-wrapper" id="projetos-wrapper">
 
-                    <div class="projeto-card ativo">
+                    <div class="projeto-card">
                         <img
                             src="assets/imagens/projetos/cards-aniversariantes.png"
                             alt="Automação de Aniversariantes"
@@ -184,7 +184,7 @@
                                 com controle de pendências, logs e organização por contratos. </br>
                                 Essa automação roda no servidor da empresa e executa em 3 fluxos separados: </br>
                                 Criação de cards Diários e Mensal, </br>
-                                Criação de relatório mensais de colaboradores com fotos pendentes.  
+                                Criação de relatório mensais de colaboradores com fotos pendentes.
                             </p>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
 
                 </div>
 
-                <button class="carousel-btn next" onclick="mudarProjeto(1)">
+                <button class="carousel-btn next" onclick="moverProjeto(1)" aria-label="Próximo projeto">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
